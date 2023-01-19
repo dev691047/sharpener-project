@@ -96,6 +96,11 @@ var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 var filter = document.getElementById('filter');
 
+//adding data to local storage
+form.addEventListener("submit",function(){
+
+})
+
 // Form submit event
 form.addEventListener('submit', addItem);
 // Delete event
@@ -104,12 +109,16 @@ itemList.addEventListener('click', removeItem);
 filter.addEventListener('keyup', filterItems);
 
 // Add item
+let i=1;
 function addItem(e){
   e.preventDefault();
 
   // Get input value
   var newItem = document.getElementById('item').value;
-
+ 
+   localStorage.setItem(`itemvalue${i++}`,newItem);
+  
+   
   // Create new li element
 //   var li = document.createElement('li');
 //   // Add class
@@ -175,3 +184,6 @@ function filterItems(e){
     }
   });
 }
+
+
+
